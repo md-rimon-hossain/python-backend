@@ -55,15 +55,14 @@ def add_user():
 
         # If the user doesn't exist, insddert with default values
         query_insert = """
-            INSERT INTO Users (
-                UserId, totalstim, invitedby, miningstarttime, timeinminute, rate, 
-                youtube, instagram, discord, telegramChannel, telegramGroup, X, facebook, 
-                Username, dailycombotime, dailyclaimedtime, alreadydailyclaimed, walletid, tiktok
-            ) VALUES (
-                ?, 0, ?, '0', '180', '0.3', NULL, NULL, NULL, NULL, NULL, NULL, ?, 0, 0, 0, NULL, NULL
-            )
+        INSERT INTO Users (
+            UserId, totalstim, invitedby, miningstarttime, timeinminute, rate, 
+            youtube, tiktok, telegramChannel,telegramGroup, discord, telegram, X, facebook, Username, 
+            dailycombotime, dailyclaimedtime, alreadydailyclaimed, walletid
+        ) VALUES (
+            ?, 0, ?, '0', '180', '0.3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ?, 0, 0, 0, NULL
+        )
         """
-
         execute_query_with_retry(conn, query_insert, (str(user_id), str(data.get('invitedby')), str(username)))
         return jsonify({'message': 'User added successfully with default values'}), 201
 
