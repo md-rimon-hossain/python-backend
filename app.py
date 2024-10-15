@@ -57,7 +57,7 @@ def add_user():
         query_insert = """
         INSERT INTO Users (
             UserId, totalstim, invitedby, miningstarttime, timeinminute, rate, 
-            youtube, tiktok, telegramChannel,telegramGroup, discord, telegram, X, facebook, Username, 
+            youtube, tiktok, instagram, telegramChannel,telegramGroup, discord, X, facebook, Username, 
             dailycombotime, dailyclaimedtime, alreadydailyclaimed, walletid
         ) VALUES (
             ?, 0, ?, '0', '180', '0.3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ?, 0, 0, 0, NULL
